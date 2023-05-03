@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:listinha/src/home/widgets/custom_drawer.dart';
 import 'package:listinha/src/shared/widgets/user_image_button.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,19 +13,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const NavigationDrawer(
-        children: [
-          Text('Opções'),
-          NavigationDrawerDestination(
-            icon: Icon(Icons.sync),
-            label: Text('Sincronizar'),
-          ),
-          NavigationDrawerDestination(
-            icon: Icon(Icons.settings),
-            label: Text('Configurações'),
-          ),
-        ],
-      ),
+      drawer: const CustomDrawer(),
       appBar: AppBar(
         title: const Text('LISTINHA'),
         actions: const [
@@ -68,7 +57,9 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton.extended(
         icon: const Icon(Icons.edit),
         label: const Text('Nova Lista'),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).pushNamed('/edit');
+        },
       ),
     );
   }

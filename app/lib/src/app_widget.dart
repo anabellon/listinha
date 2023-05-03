@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:listinha/src/configuration/configuration_page.dart';
+import 'package:listinha/src/home/edit_task_board_page.dart';
 import 'package:listinha/src/home/home_page.dart';
 
 import 'shared/themes/themes.dart';
@@ -15,7 +17,11 @@ class AppWidget extends StatelessWidget {
       themeMode: ThemeMode.light,
       theme: lightTheme,
       darkTheme: dartTheme,
-      home: const HomePage(),
+      routes: {
+        '/': (context) => const HomePage(),
+        '/edit': (context) => const EditTaskBoardPage(),
+        '/config': (context) => const ConfigurationPage(),
+      },
     );
   }
 }
