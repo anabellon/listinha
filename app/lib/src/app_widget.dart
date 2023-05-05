@@ -1,27 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:listinha/src/configuration/configuration_page.dart';
-import 'package:listinha/src/home/edit_task_board_page.dart';
-import 'package:listinha/src/home/home_page.dart';
-
+import 'package:flutter_modular/flutter_modular.dart';
 import 'shared/themes/themes.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    Modular.setInitialRoute('/home/');
+    return MaterialApp.router(
+      // .router acessa api Navigator 2.0
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
       theme: lightTheme,
       darkTheme: dartTheme,
-      routes: {
-        '/': (context) => const HomePage(),
-        '/edit': (context) => const EditTaskBoardPage(),
-        '/config': (context) => const ConfigurationPage(),
-      },
+      routerDelegate: Modular.routerDelegate,
+      routeInformationParser: Modular.routeInformationParser,
     );
   }
 }
