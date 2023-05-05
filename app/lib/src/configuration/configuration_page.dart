@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:listinha/src/shared/stores/app_store.dart';
 
@@ -39,25 +40,19 @@ class _ConfigurationPageState extends State<ConfigurationPage> {
               value: ThemeMode.system,
               groupValue: appStore.themeMode.value,
               title: const Text('Sistema'),
-              onChanged: (mode) {
-                appStore.themeMode.value = mode!;
-              },
+              onChanged: appStore.changeThemeMode,
             ),
             RadioListTile(
               value: ThemeMode.light,
               groupValue: appStore.themeMode.value,
               title: const Text('Claro'),
-              onChanged: (mode) {
-                appStore.themeMode.value = mode!;
-              },
+              onChanged: appStore.changeThemeMode
             ),
             RadioListTile(
               value: ThemeMode.dark,
               groupValue: appStore.themeMode.value,
               title: const Text('Escuro'),
-              onChanged: (mode) {
-                appStore.themeMode.value = mode!;
-              },
+              onChanged: appStore.changeThemeMode
             ),
             const SizedBox(height: 20),
             Text(
