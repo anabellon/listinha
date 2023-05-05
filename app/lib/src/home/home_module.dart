@@ -5,7 +5,6 @@ import 'home_page.dart';
 
 class HomeModule extends Module {
   @override
-  // TODO: implement routes
   List<ModularRoute> get routes => [
         ChildRoute(
           '/',
