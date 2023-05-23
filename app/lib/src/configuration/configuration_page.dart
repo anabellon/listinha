@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:listinha/src/shared/stores/app_store.dart';
 
@@ -46,13 +45,13 @@ class _ConfigurationPageState extends State<ConfigurationPage> {
               value: ThemeMode.light,
               groupValue: appStore.themeMode.value,
               title: const Text('Claro'),
-              onChanged: appStore.changeThemeMode
+              onChanged: appStore.changeThemeMode,
             ),
             RadioListTile(
               value: ThemeMode.dark,
               groupValue: appStore.themeMode.value,
               title: const Text('Escuro'),
-              onChanged: appStore.changeThemeMode
+              onChanged: appStore.changeThemeMode,
             ),
             const SizedBox(height: 20),
             Text(
@@ -61,7 +60,7 @@ class _ConfigurationPageState extends State<ConfigurationPage> {
             ),
             const SizedBox(height: 10),
             OutlinedButton(
-              onPressed: () {},
+              onPressed: appStore.deleteApp,
               child: const Text('Apagar cache e reiniciar o app'),
             ),
           ],
